@@ -1,0 +1,12 @@
+[submodule "openwrt"]
+	url = https://github.com/ariaboard-com/rockchip_rk3568_openwrt
+	path = openwrt
+[submodule "u-boot"]
+	url = https://github.com/ariaboard-com/rockchip_rk3568_uboot
+	path = u-boot
+[submodule "kernel"]
+	url = https://github.com/ariaboard-com/rockchip_rk3568_kernel
+	path = kernel
+[submodule "buildroot"]
+	url = https://github.com/ariaboard-com/rockchip_rk3568_buildroot
+	path = buildroot
