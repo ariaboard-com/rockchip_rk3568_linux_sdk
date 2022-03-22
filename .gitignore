@@ -1,0 +1,9 @@
+/kmods
+/rockdev/*.img
+/rockdev/*.ext4
+/rockdev/*.squashfs
+/rockdev/pack
+*.o
+/external/*.so
+/external/*.a
+*.o.cmd

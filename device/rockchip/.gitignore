@@ -1,0 +1,3 @@
+.BoardConfig.mk
+*.swp
+.target_product
