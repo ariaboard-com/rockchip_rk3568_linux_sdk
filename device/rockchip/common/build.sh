@@ -655,6 +655,15 @@ function build_modules(){
 	mkdir -p "${OPENWRT_FULL_KMODS_DIR}"
 	find "${COMMON_KMODS_DIR}/lib/modules/" -name "*.ko" -exec cp {} "${OPENWRT_FULL_KMODS_DIR}" \;
 
+	if [ -d "$TOP_DIR/modules-backports" ]; then
+		cd "$TOP_DIR/modules-backports" && \
+			make ARCH=$RK_ARCH KLIB_BUILD="$TOP_DIR/kernel" KLIB="$COMMON_KMODS_DIR" defconfig-rk3568 && \
+			make ARCH=$RK_ARCH KLIB_BUILD="$TOP_DIR/kernel" KLIB="$COMMON_KMODS_DIR" -j$RK_JOBS && \
+			make ARCH=$RK_ARCH KLIB_BUILD="$TOP_DIR/kernel" KLIB="$COMMON_KMODS_DIR" install && cd -
+
+		find "${COMMON_KMODS_DIR}/lib/modules/${RELEASE_NAME}/updates" -name "*.ko" -exec cp {} "${OPENWRT_FULL_KMODS_DIR}" \;
+	fi
+
 	tar -czf "${TOP_DIR}/kmods/kmods.tar.gz" -C "${COMMON_KMODS_DIR}" . --owner=0 --group=0
 	tar -czf "${TOP_DIR}/kmods/kmods-openwrt.tar.gz" -C "${OPENWRT_KMODS_DIR}" . --owner=0 --group=0
 
