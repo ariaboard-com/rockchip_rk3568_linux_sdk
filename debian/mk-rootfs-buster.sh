@@ -99,6 +99,8 @@ elif [ "$ARCH" == "arm64"  ]; then
 	sudo cp /usr/bin/qemu-aarch64-static $TARGET_ROOTFS_DIR/usr/bin/
 fi
 sudo mount -o bind /dev $TARGET_ROOTFS_DIR/dev
+sudo mv $TARGET_ROOTFS_DIR/etc/resolv.conf $TARGET_ROOTFS_DIR/etc/resolv.conf.orig
+sudo cp /etc/resolv.conf $TARGET_ROOTFS_DIR/etc/resolv.conf
 
 cat << EOF | sudo chroot $TARGET_ROOTFS_DIR
 
@@ -113,7 +115,7 @@ cp /etc/Powermanager/triggerhappy.service  /lib/systemd/system/triggerhappy.serv
 
 #---------------system--------------
 apt-get install -y git fakeroot devscripts cmake binfmt-support dh-make dh-exec pkg-kde-tools device-tree-compiler \
-bc cpio parted dosfstools mtools libssl-dev dpkg-dev isc-dhcp-client-ddns
+bc cpio parted dosfstools mtools libssl-dev dpkg-dev isc-dhcp-client-ddns build-essential libgpiod2 libjson-c3 libusb-1.0-0 nano udhcpc
 apt-get install -f -y
 
 #---------------Rga--------------
@@ -198,6 +200,8 @@ echo 'linaro:linaro' | chpasswd
 
 rm -f /etc/resolv.conf
 ln -sf ../run/NetworkManager/resolv.conf /etc/resolv.conf
+
+ssh-keygen -A
 
 EOF
 

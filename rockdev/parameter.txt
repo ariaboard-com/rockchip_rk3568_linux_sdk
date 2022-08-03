@@ -1,1 +1,1 @@
-../device/rockchip/rk356x/parameter-buildroot-fit.txt
+../device/rockchip/rk356x/parameter-debian-fit.txt

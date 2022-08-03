@@ -7,3 +7,12 @@
 /external/*.so
 /external/*.a
 *.o.cmd
+/debian/*.tar.gz
+/debian/ubuntu-build-service/buster-desktop-arm64/binary.modified_timestamps
+/debian/ubuntu-build-service/buster-desktop-arm64/chroot.files
+/debian/ubuntu-build-service/buster-desktop-arm64/chroot.packages.live
+/debian/ubuntu-build-service/buster-desktop-arm64/live-image-amd64.files
+/debian/ubuntu-build-service/buster-desktop-arm64/live-image-amd64.hybrid.iso
+/debian/ubuntu-build-service/buster-desktop-arm64/live-image-amd64.hybrid.iso.zsync
+/rockdev/sdcard.img.gz
+/modules-backports/Kconfig.kernel

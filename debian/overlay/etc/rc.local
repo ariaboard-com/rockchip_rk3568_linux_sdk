@@ -22,4 +22,9 @@ if [ -d '/packages' ]; then
     /etc/init.d/rockchip.sh
 fi
 
+if [ -f '/etc/firstboot.tmp' ]; then
+    resize2fs /dev/disk/by-partlabel/rootfs
+    rm -f /etc/firstboot.tmp
+fi
+
 exit 0
