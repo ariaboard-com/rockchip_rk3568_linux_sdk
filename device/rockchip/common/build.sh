@@ -824,7 +824,7 @@ function build_rootfs(){
 	RK_ROOTFS_DIR=.rootfs
 	ROOTFS_IMG=${RK_ROOTFS_IMG##*/}
 
-	if [ ${RK_ROOTFS_SYSTEM} != "ubuntu" ]; then
+	if [ "x${RK_ROOTFS_SYSTEM}" != "xubuntu" ]; then
 		rm -rf $RK_ROOTFS_IMG $RK_ROOTFS_DIR
 		mkdir -p ${RK_ROOTFS_IMG%/*} $RK_ROOTFS_DIR
 	fi
